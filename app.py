@@ -51,9 +51,13 @@ def generate_response(input_text):
 # Define the API endpoint
 @app.route('/api/chatbot', methods=['POST'])
 def chatbot():
+    
     input_text = request.json['input_text']
     response = generate_response(input_text)
-    return jsonify({'response': response})
+    
+    my_resp = make_response(jsonify({'response': response}))
+    my_resp.headers['Access-Control-Allow-Origin'] = '*'
+    return my_resp
 
 @app.route('/api/chatbot/reload', methods=['POST'])
 def reload():
