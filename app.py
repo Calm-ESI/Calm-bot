@@ -59,7 +59,7 @@ def chatbot():
     my_resp.headers['Access-Control-Allow-Origin'] = '*'
     return my_resp
 
-@app.route('/api/chatbot/reload', methods=['POST'])
+@app.route('/api/chatbot/reload',  methods=['POST'])
 def reload():
    
     if os.name == 'nt':  # Windows
